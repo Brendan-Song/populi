@@ -27,6 +27,10 @@ type Config struct {
 	FacebookClientSecret string
 }
 
+func Login(config *Config) {
+
+}
+
 // New returns a new ServeMux with app routes.
 func New(config *Config) *http.ServeMux {
 	mux := http.NewServeMux()
@@ -111,4 +115,20 @@ func isAuthenticated(req *http.Request) bool {
 		return true
 	}
 	return false
+}
+
+func Get(w http.ResponseWriter, r *http.Request) {
+
+}
+
+func Create(w http.ResponseWriter, r *http.Request) {
+
+}
+
+func Update(w http.ResponseWriter, r *http.Request) {
+
+}
+
+func Delete(w http.ResponseWriter, r *http.Request) {
+
 }
