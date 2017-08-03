@@ -1,12 +1,16 @@
 package main
 
 import (
+	"fmt"
 	"log"
 	"net/http"
+
+	"populi/utility"
 )
 
+// Index handles requests to the home page
 func Index(w http.ResponseWriter, r *http.Request) {
-
+	fmt.Fprintln(w, "Welcome!")
 }
 
 // main creates and starts a Server listening.
@@ -34,9 +38,11 @@ func main() {
 	// 	log.Fatal("Missing Facebook Client Secret")
 	// }
 
-	router := NewRouter()
+	utility.InitDB()
 
-	err := http.ListenAndServe(":8080", router)
+	router := InitRouter()
+
+	err := http.ListenAndServe("localhost:8080", router)
 	if err != nil {
 		log.Fatal("ListenAndServe: ", err)
 	}
